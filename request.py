@@ -24,9 +24,10 @@ print(valuechecksum)
 ##setting header    
 headers = {'X-Request-Checksum': valuechecksum}
 res = requests.get(baseurl+path, headers=headers)
+print(res.code)
 userids=[]
 for userid in res.text.split('\n'):
-    userids.append(userid)
+    userids.append(userid) 
 print(json.dumps(userids))
     
 
