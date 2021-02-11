@@ -25,10 +25,13 @@ print(valuechecksum)
 headers = {'X-Request-Checksum': valuechecksum}
 max_attempts = 3
 attempt = 0
-while attempt < max_attempts:
+status_code = None
+
+while status_code != '200' and attempt < max_attempts:
     res = requests.get(baseurl+path, headers=headers)
-    print(res.status_code)
-    try +=1
+    status_code = res.status_code
+    print("Attempt:{}, status code:{}".format(attempt, status_code))
+    attempt +=1
 
 userids=[]
 for userid in res.text.split('\n'):
