@@ -23,7 +23,7 @@ print(valuechecksum)
 
 ##setting header    
 headers = {'X-Request-Checksum': valuechecksum}
-res = requests.get(baseurl+path)
+res = requests.get(baseurl+path, headers=headers)
 print(res.body)
 
     
