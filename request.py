@@ -15,6 +15,7 @@ print(token)
 def get_checksum(token, path_to_request):
     value = hashlib.sha256(token+path_to_request).hexdigest()
     return value
+    ##hello world
 
 
 
