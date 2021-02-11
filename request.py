@@ -9,7 +9,7 @@ from retry.api import retry_call
 res = requests.get('http://0.0.0.0:8888/auth')
 print(res.headers)
 token = res.headers['Badsec-Authentication-Token']
-print(token)
+print("este es el token", type(token))
 
 
 def get_checksum(token, path_to_request):
