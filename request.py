@@ -23,9 +23,9 @@ print(valuechecksum)
 
 ##setting header    
 headers = {'X-Request-Checksum': valuechecksum}
-tries = 3
-try = 0
-while try < tries:
+max_attempts = 3
+attempt = 0
+while attempt < max_attempts:
     res = requests.get(baseurl+path, headers=headers)
     print(res.status_code)
     try +=1
