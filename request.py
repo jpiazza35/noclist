@@ -23,12 +23,18 @@ print(valuechecksum)
 
 ##setting header    
 headers = {'X-Request-Checksum': valuechecksum}
-res = requests.get(baseurl+path, headers=headers)
-print(res.status_code)
+tries = 3
+try = 0
+while try < tries:
+    res = requests.get(baseurl+path, headers=headers)
+    print(res.status_code)
+    try +=1
+
 userids=[]
 for userid in res.text.split('\n'):
     userids.append(userid) 
 print(json.dumps(userids))
+
     
 
 
